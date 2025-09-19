@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Play:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 body{
    background-color: #E4E4E4;
    display: flex;
    justify-content: center;
-   align-items: center;
+   font-family: "Inter", sans-serif;;
 }
 .container{
-    width: 580px;
-    height: 854px;
+    /* width: 580px;
+    height: 854px; */
+    display: flex;
+    flex-direction: column;
+    margin: 113px 630px 113px 630px;
+    gap: 33px;
 }
 .gameplay-box{
     background-color: #F5F5F5;
@@ -14,14 +20,13 @@ body{
     min-height: 580px;
     border-radius: 37px;
     padding: 49px;
-}
-.gameplay-box__cross{
-    box-shadow: #1F1F1F 5px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 .cross_animation{
-    visibility: hidden;
+    opacity: 0;
 }
-
 .gameplay-box__grid-elem{
     width: 144px;
     height: 144px;
@@ -29,4 +34,59 @@ body{
     background-color: #E4E4E4;
     padding: 17px;
     box-shadow: #1F1F1F 10px 10px;
+}
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeInShadow{
+    from {
+        box-shadow: #1F1F1F 10px 10px;
+    }
+    to {
+        box-shadow: #1F1F1F 5px 5px;
+    }
+}
+.gameplay-box__grid-elem:hover .cross_animation{
+    animation: fadeIn 0.5s forwards;
+    cursor: pointer;
+}
+.gameplay-box__grid-elem:hover{
+    animation: fadeInShadow 0.5s forwards;
+}
+.menu-block{
+    width: 580px;
+    height: 104px;
+    border-radius: 16px;
+    background: #F5F5F5;
+    font-weight: 800;
+    font-size: 48px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #212121;
+    padding: 23px 156px;
+}
+.restart-block{
+    width: 580px;
+    height: 104px;
+    border-radius: 16px;
+    display: flex;
+    gap: 15px;
+    color: #EAEAEA;
+    background: #212121;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 48px;
+    text-align: center;
+    padding: 23px 130px;
+    visibility: hidden;
+    border: none;
+    cursor: pointer;
 }
