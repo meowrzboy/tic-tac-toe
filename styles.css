@@ -1,0 +1,32 @@
+body{
+   background-color: #E4E4E4;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.container{
+    width: 580px;
+    height: 854px;
+}
+.gameplay-box{
+    background-color: #F5F5F5;
+    width: 580px;
+    min-height: 580px;
+    border-radius: 37px;
+    padding: 49px;
+}
+.gameplay-box__cross{
+    box-shadow: #1F1F1F 5px 5px;
+}
+.cross_animation{
+    visibility: hidden;
+}
+
+.gameplay-box__grid-elem{
+    width: 144px;
+    height: 144px;
+    border-radius: 16px;
+    background-color: #E4E4E4;
+    padding: 17px;
+    box-shadow: #1F1F1F 10px 10px;
+}
