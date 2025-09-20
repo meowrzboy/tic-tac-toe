@@ -4,10 +4,24 @@ let animation = document.querySelectorAll(".animation");
 
 gameButton.forEach(button => {
     button.onclick = function(){
-        moveOrder++;
+        if (this.classList.contains("gameplay-box__cross") || this.classList.contains("gameplay-box__zero")){
+            return moveOrder;
+        } else {
+            moveOrder++;
+        }
         updateAnimationMoveOrder();
         updateMoveOrder(this);
         console.log(moveOrder);
+        if (this.classList.contains("gameplay-box__cross") || this.classList.contains("gameplay-box__zero")){
+            gameButton.forEach(btn => {
+                    if (btn.classList.contains("gameplay-box__cross") || btn.classList.contains("gameplay-box__zero")) {
+                        let animationElement = btn.closest('.gameplay-box__grid-elem').querySelector('.animation');
+                        if (animationElement) {
+                            animationElement.classList.remove("cross_animation", "zero_animation");
+                        }
+                    }
+            });
+        };
         return moveOrder;
     };
 });
@@ -36,7 +50,6 @@ function updateAnimationMoveOrder(){
     };
 };
 function updateMoveOrder(clickedButton){
-    clickedButton.classList.remove("cross_animation", "zero_animation");
     if (isEven(moveOrder-1) === false){
         clickedButton.classList.add("gameplay-box__cross");
     } else {
