@@ -81,6 +81,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .menu-block{
     width: 580px;
     height: 104px;
@@ -94,22 +95,44 @@ body{
     color: #212121;
     padding: 23px 156px;
 }
-.restart-block{
+.game-header-block {
+    position: relative;
     width: 580px;
     height: 104px;
-    border-radius: 16px;
+}
+
+.game-name-block, .restart-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    gap: 15px;
-    color: #EAEAEA;
-    background: #212121;
-    justify-content: center;
     align-items: center;
-    font-family: Inter;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+.restart-block img{
+    margin-right: 15px;
+}
+.restart-block {
+    background: #212121;
+    color: #EAEAEA;
+    border: none;
+    border-radius: 16px;
     font-weight: 700;
     font-size: 48px;
-    text-align: center;
-    padding: 23px 130px;
-    border: none;
     cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    opacity: 0;
     visibility: hidden;
 }
