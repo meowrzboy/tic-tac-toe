@@ -2,6 +2,8 @@ let moveOrder = 1;
 let gameButton = document.querySelectorAll(".gameplay-box__grid-elem");
 let animation = document.querySelectorAll(".animation");
 let resultButton = document.querySelector(".result-block")
+const titleBlock = document.querySelector('.game-name-block');
+const restartButton = document.querySelector('.restart-block');
 // let gridElem1Counter = document.querySelector(".grid-elem1");
 // let gridElem2Counter = document.querySelector(".grid-elem2");
 // let gridElem3Counter = document.querySelector(".grid-elem3");
@@ -51,13 +53,23 @@ function isDraw() {
         resultButton.textContent = "Draw !!!";
         showRestartButton();
     };  
-}
+};
 function showRestartButton() {
-    const titleBlock = document.querySelector('.game-name-block');
-    const restartButton = document.querySelector('.restart-block');
     titleBlock.classList.add('hidden');
     restartButton.classList.add('visible');
-}
+    restartButton.onclick = restartGame;
+};
+function restartGame(){
+    moveOrder = 1;
+    gameButton.forEach(button =>{
+        button.classList.remove("gameplay-box__cross");
+        button.classList.remove("gameplay-box__zero");
+    });
+    resultButton.textContent = "Result";
+    titleBlock.classList.remove("hidden");
+    restartButton.classList.remove("visible");
+    updateAnimationMoveOrder();
+};
 function updateAnimationMoveOrder(){
     if (isEven(moveOrder) === false){
         animation.forEach(animation => {
