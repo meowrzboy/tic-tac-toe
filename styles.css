@@ -59,7 +59,7 @@ body{
     padding: 17px;
     box-shadow: #1F1F1F 10px 10px;
     border: none;
-    transition: 0.5s;
+    transition: box-shadow 0.5s;
 }
 .gameplay-box__grid-elem:hover .cross_animation{
     opacity: 1;
@@ -77,14 +77,12 @@ body{
     background-size: 110px 110px;
     background-repeat: no-repeat;
     background-position: center;
-    transition: none;
 }
 .gameplay-box__cross{
     background-image: url(asset_cross.svg);
     background-size: 110px 110px;
     background-repeat: no-repeat;
     background-position: center;
-    transition: none;
 }
 
 .menu-block{
