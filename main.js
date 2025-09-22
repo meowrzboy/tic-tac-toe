@@ -13,6 +13,16 @@ let gridElem6Counter = document.querySelector(".grid-elem6");
 let gridElem7Counter = document.querySelector(".grid-elem7");
 let gridElem8Counter = document.querySelector(".grid-elem8");
 let gridElem9Counter = document.querySelector(".grid-elem9");
+let winnerSequence = [
+    [gridElem1Counter, gridElem2Counter, gridElem3Counter],
+    [gridElem4Counter, gridElem5Counter, gridElem6Counter],
+    [gridElem7Counter, gridElem8Counter, gridElem9Counter],
+    [gridElem1Counter, gridElem4Counter, gridElem7Counter],
+    [gridElem2Counter, gridElem5Counter, gridElem8Counter],
+    [gridElem3Counter, gridElem6Counter, gridElem9Counter],
+    [gridElem1Counter, gridElem5Counter, gridElem9Counter],
+    [gridElem3Counter, gridElem5Counter, gridElem7Counter]
+];
 
 
 gameButton.forEach(button => {
@@ -39,78 +49,26 @@ gameButton.forEach(button => {
     };
 });
 function isWin(){
-    if (gridElem1Counter.classList.contains("gameplay-box__cross") && gridElem2Counter.classList.contains("gameplay-box__cross") && gridElem3Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    if (gridElem4Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem6Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    if (gridElem7Counter.classList.contains("gameplay-box__cross") && gridElem8Counter.classList.contains("gameplay-box__cross") && gridElem9Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    if (gridElem1Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem9Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    if (gridElem3Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem7Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    if (gridElem1Counter.classList.contains("gameplay-box__cross") && gridElem4Counter.classList.contains("gameplay-box__cross") && gridElem7Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    if (gridElem2Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem8Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    if (gridElem3Counter.classList.contains("gameplay-box__cross") && gridElem6Counter.classList.contains("gameplay-box__cross") && gridElem9Counter.classList.contains("gameplay-box__cross")){
-        resultButton.textContent = "X Win!!";
-        showRestartButton();
-    }
-    //////
-    if (gridElem1Counter.classList.contains("gameplay-box__zero") && gridElem2Counter.classList.contains("gameplay-box__zero") && gridElem3Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
-    if (gridElem4Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem6Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
-    if (gridElem7Counter.classList.contains("gameplay-box__zero") && gridElem8Counter.classList.contains("gameplay-box__zero") && gridElem9Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
-    if (gridElem1Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem9Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
-    if (gridElem3Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem7Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
-    if (gridElem1Counter.classList.contains("gameplay-box__zero") && gridElem4Counter.classList.contains("gameplay-box__zero") && gridElem7Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
-    if (gridElem2Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem8Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
-    if (gridElem3Counter.classList.contains("gameplay-box__zero") && gridElem6Counter.classList.contains("gameplay-box__zero") && gridElem9Counter.classList.contains("gameplay-box__zero")){
-        resultButton.textContent = "O Win!!";
-        showRestartButton();
-    }
+    for (let i = 0; i < winnerSequence.length; i++){
+        const combination = winnerSequence[i];
+        if (combination[0].classList.contains("gameplay-box__cross") &&
+            combination[1].classList.contains("gameplay-box__cross") &&
+            combination[2].classList.contains("gameplay-box__cross")) {
+            resultButton.textContent = "X Win!!";
+            showRestartButton();
+            break;
+        };
+        if (combination[0].classList.contains("gameplay-box__zero") &&
+            combination[1].classList.contains("gameplay-box__zero") &&
+            combination[2].classList.contains("gameplay-box__zero")) {
+            resultButton.textContent = "O Win!!";
+            showRestartButton();
+            break;
+        };
+    };
 };
 function isEven(num){
-    if (num % 2 === 0){
-        return true;
-    } else {
-        return false;
-    }
+    return num % 2 === 0
 };
 function isDraw() {
     const allFilled = Array.from(gameButton).every(button => {
