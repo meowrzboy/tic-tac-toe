@@ -4,15 +4,15 @@ let animation = document.querySelectorAll(".animation");
 let resultButton = document.querySelector(".result-block")
 const titleBlock = document.querySelector('.game-name-block');
 const restartButton = document.querySelector('.restart-block');
-// let gridElem1Counter = document.querySelector(".grid-elem1");
-// let gridElem2Counter = document.querySelector(".grid-elem2");
-// let gridElem3Counter = document.querySelector(".grid-elem3");
-// let gridElem4Counter = document.querySelector(".grid-elem4");
-// let gridElem5Counter = document.querySelector(".grid-elem5");
-// let gridElem6Counter = document.querySelector(".grid-elem6");
-// let gridElem7Counter = document.querySelector(".grid-elem7");
-// let gridElem8Counter = document.querySelector(".grid-elem8");
-// let gridElem9Counter = document.querySelector(".grid-elem9");
+let gridElem1Counter = document.querySelector(".grid-elem1");
+let gridElem2Counter = document.querySelector(".grid-elem2");
+let gridElem3Counter = document.querySelector(".grid-elem3");
+let gridElem4Counter = document.querySelector(".grid-elem4");
+let gridElem5Counter = document.querySelector(".grid-elem5");
+let gridElem6Counter = document.querySelector(".grid-elem6");
+let gridElem7Counter = document.querySelector(".grid-elem7");
+let gridElem8Counter = document.querySelector(".grid-elem8");
+let gridElem9Counter = document.querySelector(".grid-elem9");
 
 
 gameButton.forEach(button => {
@@ -25,6 +25,7 @@ gameButton.forEach(button => {
         updateAnimationMoveOrder();
         updateMoveOrder(this);
         isDraw();
+        isWin();
         if (this.classList.contains("gameplay-box__cross") || this.classList.contains("gameplay-box__zero")){
             gameButton.forEach(btn => {
                 if (btn.classList.contains("gameplay-box__cross") || btn.classList.contains("gameplay-box__zero")) {
@@ -37,6 +38,73 @@ gameButton.forEach(button => {
         };
     };
 });
+function isWin(){
+    if (gridElem1Counter.classList.contains("gameplay-box__cross") && gridElem2Counter.classList.contains("gameplay-box__cross") && gridElem3Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    if (gridElem4Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem6Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    if (gridElem7Counter.classList.contains("gameplay-box__cross") && gridElem8Counter.classList.contains("gameplay-box__cross") && gridElem9Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    if (gridElem1Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem9Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    if (gridElem3Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem7Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    if (gridElem1Counter.classList.contains("gameplay-box__cross") && gridElem4Counter.classList.contains("gameplay-box__cross") && gridElem7Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    if (gridElem2Counter.classList.contains("gameplay-box__cross") && gridElem5Counter.classList.contains("gameplay-box__cross") && gridElem8Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    if (gridElem3Counter.classList.contains("gameplay-box__cross") && gridElem6Counter.classList.contains("gameplay-box__cross") && gridElem9Counter.classList.contains("gameplay-box__cross")){
+        resultButton.textContent = "X Win!!";
+        showRestartButton();
+    }
+    //////
+    if (gridElem1Counter.classList.contains("gameplay-box__zero") && gridElem2Counter.classList.contains("gameplay-box__zero") && gridElem3Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+    if (gridElem4Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem6Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+    if (gridElem7Counter.classList.contains("gameplay-box__zero") && gridElem8Counter.classList.contains("gameplay-box__zero") && gridElem9Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+    if (gridElem1Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem9Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+    if (gridElem3Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem7Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+    if (gridElem1Counter.classList.contains("gameplay-box__zero") && gridElem4Counter.classList.contains("gameplay-box__zero") && gridElem7Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+    if (gridElem2Counter.classList.contains("gameplay-box__zero") && gridElem5Counter.classList.contains("gameplay-box__zero") && gridElem8Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+    if (gridElem3Counter.classList.contains("gameplay-box__zero") && gridElem6Counter.classList.contains("gameplay-box__zero") && gridElem9Counter.classList.contains("gameplay-box__zero")){
+        resultButton.textContent = "O Win!!";
+        showRestartButton();
+    }
+};
 function isEven(num){
     if (num % 2 === 0){
         return true;

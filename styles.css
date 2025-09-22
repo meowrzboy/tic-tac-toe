@@ -110,7 +110,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 2.5s ease;
+    transition: opacity 2s ease;
 }
 .restart-block img{
     margin-right: 15px;
