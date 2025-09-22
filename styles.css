@@ -42,12 +42,14 @@ body{
     height: 110px;
     width: 110px;
     opacity: 0;
+    transition: 0.5s;
 }
 .zero_animation{
     background-image: url(asset_zero_animation.svg);
     opacity: 0;
     height: 110px;
     width: 110px;
+    transition: 0.5s;
 }
 .gameplay-box__grid-elem{
     width: 144px;
@@ -57,29 +59,32 @@ body{
     padding: 17px;
     box-shadow: #1F1F1F 10px 10px;
     border: none;
+    transition: 0.5s;
 }
 .gameplay-box__grid-elem:hover .cross_animation{
-    animation: fadeIn 0.5s forwards;
+    opacity: 1;
     cursor: pointer;
 }
 .gameplay-box__grid-elem:hover .zero_animation{
-    animation: fadeIn 0.5s forwards;
+    opacity: 1;
     cursor: pointer;
 }
 .gameplay-box__grid-elem:hover{
-    animation: fadeInShadow 0.5s forwards;
+    box-shadow: 5px 5px;
 }
 .gameplay-box__zero{
     background-image: url(asset_zero.svg);
     background-size: 110px 110px;
     background-repeat: no-repeat;
     background-position: center;
+    transition: none;
 }
 .gameplay-box__cross{
     background-image: url(asset_cross.svg);
     background-size: 110px 110px;
     background-repeat: no-repeat;
     background-position: center;
+    transition: none;
 }
 
 .menu-block{
